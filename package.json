@@ -1,0 +1,44 @@
+{
+  "name": "rockman",
+  "version": "0.0.01",
+  "description": "lightning fast development/boilerplate tool for javascript/node.js",
+  "keywords": [],
+  "author": "Cloud Le",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudle/rockman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cloudle/rockman/issues"
+  },
+  "homepage": "https://github.com/cloudle/rockman#readme",
+  "dependencies": {
+    "@swc/cli": "^0.1.49",
+    "@swc/core": "^1.2.88",
+    "regenerator-runtime": "^0.13.9",
+    "swc-loader": "^0.1.15",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.4.3",
+    "webpack": "^5.53.0",
+    "yargs": "^17.1.1"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.4.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

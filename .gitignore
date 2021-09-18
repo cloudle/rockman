@@ -1,0 +1,12 @@
+# OSX
+#
+.DS_Store
+
+.idea
+
+wings/
+dist/
+
+node_modules/
+npm-debug.log
+yarn-error.log
