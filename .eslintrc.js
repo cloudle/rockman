@@ -4,11 +4,12 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'simple-import-sort', 'prettier'],
+  plugins: ['@typescript-eslint', 'simple-import-sort', 'jest', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
+    'plugin:jest/style',
     'prettier',
   ],
   rules: {
@@ -41,7 +42,13 @@ module.exports = {
       },
     ],
   },
+  settings: {
+    jest: {
+      version: 27,
+    },
+  },
   env: {
     node: true,
+    'jest/globals': true,
   },
 }
