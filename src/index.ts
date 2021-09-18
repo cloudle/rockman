@@ -1,8 +1,11 @@
-import { useHello } from 'utils/effect'
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 
-export interface IUser {
-  name: string
-}
+const cli = yargs(hideBin(process.argv))
+const commandOptions = []
 
-useHello()
-console.log('hello world!')
+cli.alias('h', 'help')
+cli.alias('v', 'version')
+commandOptions.forEach(cli.command)
+
+cli.help().argv

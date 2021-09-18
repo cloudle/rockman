@@ -17,6 +17,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts'],
     alias: {
+      commands: resolve(__dirname, 'src/commands'),
+      middlewares: resolve(__dirname, 'src/middlewares'),
       utils: resolve(__dirname, 'src/utils'),
     },
   },
@@ -24,8 +26,12 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|js)$/,
-        exclude: /node_module/,
         loader: 'swc-loader',
+        options: {
+          jsc: {
+            target: 'es2015',
+          },
+        },
       },
     ],
   },
