@@ -51,4 +51,7 @@ module.exports = {
     node: true,
     'jest/globals': true,
   },
+  globals: {
+    nodeRequire: true,
+  },
 }

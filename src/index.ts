@@ -4,7 +4,7 @@ import bundleCommand from 'commands/bundle'
 import extendsCommand from 'commands/extends'
 import initCommand from 'commands/init'
 import runCommand from 'commands/run'
-import { options } from 'utils/global'
+import { options } from 'utils/configs'
 
 export const cliInstance = yargs(hideBin(process.argv))
 const commands = [runCommand, initCommand, extendsCommand, bundleCommand]

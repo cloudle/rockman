@@ -9,10 +9,10 @@ module.exports = {
     node: true,
   },
   entry: {
-    index: './src/index.ts',
+    bundle: './src/index.ts',
   },
   output: {
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname),
   },
   resolve: {
     extensions: ['.js', '.ts'],
