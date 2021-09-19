@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack",
+    "lint": "eslint",
     "test": "jest"
   },
   "repository": {

@@ -1,8 +1,8 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-const cli = yargs(hideBin(process.argv))
 const commandOptions = []
+export const cli = yargs(hideBin(process.argv))
 
 cli.alias('h', 'help')
 cli.alias('v', 'version')
