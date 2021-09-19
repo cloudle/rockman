@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
-		"baseUrl": "src",
+		"baseUrl": ".",
 		"paths": {
-			"command/*": ["src/command/*"],
+			"commands/*": ["src/commands/*"],
 			"middlewares/*": ["src/middlewares/*"],
 			"utils/*": ["src/utils/*"],
 		}

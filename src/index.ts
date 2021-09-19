@@ -1,11 +1,15 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import defaultCommand from 'commands/default'
+import { options } from 'utils/global'
 
-const commandOptions = []
-export const cli = yargs(hideBin(process.argv))
+export const cliInstance = yargs(hideBin(process.argv))
+const commands = [defaultCommand]
+commands.forEach((options) => cliInstance.command(options))
 
-cli.alias('h', 'help')
-cli.alias('v', 'version')
-commandOptions.forEach(cli.command)
-
-cli.help().argv
+cliInstance
+  .options(options)
+  .alias('h', 'help')
+  .alias('v', 'version')
+  .demandCommand(1, 'You need at least one command before moving on')
+  .parse()
