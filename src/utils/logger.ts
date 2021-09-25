@@ -34,5 +34,8 @@ export const defaultLogger = (chalk: Chalk): RockLogger => {
         gray('          • ') + yellow('launching ') + serverAddress(configs),
       );
     },
+    launchNodeFailure: (entry: string) => {
+      console.log(gray(mark) + red(' error launching server ') + green(entry));
+    },
   };
 };

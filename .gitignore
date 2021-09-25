@@ -7,6 +7,7 @@
 playground/
 wings/
 bundle.js
+lib.js
 
 node_modules/
 npm-debug.log

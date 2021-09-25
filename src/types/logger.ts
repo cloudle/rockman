@@ -5,4 +5,5 @@ export interface RockLogger {
   noEntry: (availableEntries: string) => void;
   nodeDetected: (entry: string, configs: RockDynamicConfig) => void;
   launchNodeServer: (configs: RockDynamicConfig) => void;
+  launchNodeFailure: (entry: string, configs: RockDynamicConfig) => void;
 }
