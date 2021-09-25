@@ -16,7 +16,7 @@ const httpServer = createServer();
 
 const configureServer = (httpServer, listen = false) => {
   const entryMod = require(entryUri);
-  const configure = entryMod.configure || (() => express());
+  const configure = entryMod.configure || (() => undefined);
 
   asyncWrap(configure(express, httpServer)).then((requestHandler) => {
     if (listen) {
@@ -26,7 +26,7 @@ const configureServer = (httpServer, listen = false) => {
     if (requestHandler) {
       httpServer.removeAllListeners('upgrade');
       httpServer.removeAllListeners('request');
-      httpServer.on('request', requestHandler);
+      httpServer.on('request', requestHandler || express());
     }
   });
 };
