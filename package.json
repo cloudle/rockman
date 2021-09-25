@@ -1,14 +1,24 @@
 {
   "name": "rockman",
-  "version": "0.0.01",
+  "version": "0.0.02",
   "description": "lightning fast development/boilerplate tool for javascript/node.js",
   "keywords": [],
   "author": "Cloud Le",
   "license": "MIT",
-  "main": "index.js",
+  "bin": {
+    "rockman": "cli.js"
+  },
+  "files": [
+    "assets",
+    "!assets/templates/**/node_module",
+    "bundle.js",
+    "server.js",
+    "cli.js"
+  ],
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack",
+    "release": "npm run build && npm publish",
     "lint": "eslint",
     "test": "jest"
   },
