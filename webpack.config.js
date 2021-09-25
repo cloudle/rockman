@@ -1,5 +1,5 @@
-const { resolve } = require('path')
-const nodeExternals = require('webpack-node-externals')
+const { resolve } = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 // const tsLoader = { test: /\.(ts|js)$/, loader: 'ts-loader' }
 const swcLoader = {
@@ -10,7 +10,7 @@ const swcLoader = {
       target: 'es2015',
     },
   },
-}
+};
 
 module.exports = {
   mode: 'production',
@@ -37,4 +37,4 @@ module.exports = {
   module: {
     rules: [swcLoader],
   },
-}
+};

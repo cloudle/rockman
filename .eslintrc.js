@@ -35,7 +35,6 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        semi: false,
         trailingComma: 'all',
         singleQuote: true,
         tabWidth: 2,
@@ -55,4 +54,4 @@ module.exports = {
     nodeRequire: true,
     packageJson: true,
   },
-}
+};

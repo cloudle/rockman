@@ -2,7 +2,7 @@ const swcConfig = {
   module: {
     type: 'commonjs',
   },
-}
+};
 
 module.exports = {
   transform: {
@@ -14,4 +14,4 @@ module.exports = {
     '^utils(.*)$': '<rootDir>/src/utils$1',
     '^types(.*)$': '<rootDir>/src/types$1',
   },
-}
+};

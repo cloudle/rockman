@@ -1,18 +1,18 @@
-import { v4 as uuid } from 'uuid'
-import { merge } from 'lodash'
+import { v4 as uuid } from 'uuid';
+import { merge } from 'lodash';
 import {
   RockConfigs,
   RockDynamicConfig,
   RockInternals,
   RockModules,
-} from 'types/cli'
-import { defaultLogger } from 'utils/logger'
-import { crossRequire, crossResolve, exists } from 'utils/module'
+} from 'types/cli';
+import { defaultLogger } from 'utils/logger';
+import { crossRequire, crossResolve, exists } from 'utils/module';
 
 export const extractInternals = async (): Promise<RockInternals> => {
-  const modules: RockModules = {}
+  const modules: RockModules = {};
   const userConfigs: RockConfigs =
-    ((await crossRequire('rock.config.js')) as RockConfigs) || {}
+    ((await crossRequire('rock.config.js')) as RockConfigs) || {};
 
   const moduleMap = merge(
     {
@@ -24,13 +24,13 @@ export const extractInternals = async (): Promise<RockInternals> => {
       DevServer: 'node_modules/webpack-dev-server',
     },
     userConfigs.resolves || {},
-  )
+  );
 
   for (const key in moduleMap) {
-    modules[key] = await crossRequire(moduleMap[key])
+    modules[key] = await crossRequire(moduleMap[key]);
   }
 
-  modules['logger'] = defaultLogger(modules['chalk'])
+  modules['logger'] = defaultLogger(modules['chalk']);
 
   const configs: RockConfigs = merge(
     {
@@ -50,20 +50,20 @@ export const extractInternals = async (): Promise<RockInternals> => {
       resolves: {},
     } as RockConfigs,
     userConfigs,
-  )
+  );
 
   return {
     configs,
     modules,
-  }
-}
+  };
+};
 
 export const fetchDynamicConfigs = (
   configs: RockConfigs,
   args: Record<string, never> = {},
 ): RockDynamicConfig => {
-  const env = configs.env()
-  const isProduction = configs.isProduction(env)
+  const env = configs.env();
+  const isProduction = configs.isProduction(env);
 
   return {
     env,
@@ -75,15 +75,15 @@ export const fetchDynamicConfigs = (
     host: configs.host(args.host),
     optimizeMode: configs.optimizeMode(env),
     keepPreviousBuild: configs.keepPreviousBuild(isProduction),
-  }
-}
+  };
+};
 
 export const webEntries = [
   'index.web.js',
   'index.js',
   'index.ts',
   'index.web.ts',
-]
+];
 
 export const nodeEntries = [
   'index.node.js',
@@ -92,14 +92,14 @@ export const nodeEntries = [
   'index.node.ts',
   'server.ts',
   'node.ts',
-]
+];
 
 export const guessEntry = async (
   entries: string[],
 ): Promise<string | undefined> => {
   for (const entry of entries) {
     if (await exists(entry)) {
-      return entry
+      return entry;
     }
   }
-}
+};

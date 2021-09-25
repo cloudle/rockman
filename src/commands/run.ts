@@ -1,14 +1,14 @@
-import type { CommandModule } from 'yargs'
+import type { CommandModule } from 'yargs';
 import {
   extractInternals,
   fetchDynamicConfigs,
   guessEntry,
   nodeEntries,
   webEntries,
-} from 'utils/cli'
+} from 'utils/cli';
 
-const packageJson = global.packageJson
-export const sum = (a: number, b: number): number => a + b
+const packageJson = global.packageJson;
+export const sum = (a: number, b: number): number => a + b;
 
 const module: CommandModule = {
   command: '$0',
@@ -16,23 +16,23 @@ const module: CommandModule = {
   describe: 'Launch development environment',
   builder: (yargs) => yargs.default('p', 2000),
   handler: async () => {
-    const { configs, modules } = await extractInternals()
-    const { logger } = modules
-    const dynamicConfigs = fetchDynamicConfigs(configs)
-    const webEntry = await guessEntry(webEntries)
-    const nodeEntry = await guessEntry(nodeEntries)
+    const { configs, modules } = await extractInternals();
+    const { logger } = modules;
+    const dynamicConfigs = fetchDynamicConfigs(configs);
+    const webEntry = await guessEntry(webEntries);
+    const nodeEntry = await guessEntry(nodeEntries);
 
-    logger.greeting(packageJson.version)
+    logger.greeting(packageJson.version);
 
     if (!webEntry && !nodeEntry) {
-      logger.noEntry([...webEntries, ...nodeEntries].join(', '))
+      logger.noEntry([...webEntries, ...nodeEntries].join(', '));
     }
 
     if (nodeEntry) {
-      logger.nodeDetected(nodeEntry, dynamicConfigs)
-      logger.launchNodeServer(dynamicConfigs)
+      logger.nodeDetected(nodeEntry, dynamicConfigs);
+      logger.launchNodeServer(dynamicConfigs);
     }
   },
-}
+};
 
-export default module
+export default module;

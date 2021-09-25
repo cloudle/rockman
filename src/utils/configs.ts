@@ -1,4 +1,4 @@
-import type { Options } from 'yargs'
+import type { Options } from 'yargs';
 
 export const options: Record<string, Options> = {
   p: {
@@ -23,4 +23,4 @@ export const options: Record<string, Options> = {
     alias: 'devOnly',
     type: 'boolean',
   },
-}
+};

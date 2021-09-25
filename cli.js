@@ -1,3 +1,3 @@
-global.nodeRequire = require
-global.packageJson = require('./package.json')
-require('./bundle')
+global.nodeRequire = require;
+global.packageJson = require('./package.json');
+require('./bundle');
