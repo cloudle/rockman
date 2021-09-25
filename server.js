@@ -13,6 +13,7 @@ const mark = '｢rockman｣';
 const asyncWrap = (result) => new Promise((resolve) => resolve(result));
 
 const httpServer = createServer();
+const defaultHandler = express();
 
 const configureServer = (httpServer, listen = false) => {
   const entryMod = require(entryUri);
@@ -23,11 +24,9 @@ const configureServer = (httpServer, listen = false) => {
       httpServer.listen('3005');
     }
 
-    if (requestHandler) {
-      httpServer.removeAllListeners('upgrade');
-      httpServer.removeAllListeners('request');
-      httpServer.on('request', requestHandler || express());
-    }
+    httpServer.removeAllListeners('upgrade');
+    httpServer.removeAllListeners('request');
+    httpServer.on('request', requestHandler || defaultHandler);
   });
 };
 
