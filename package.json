@@ -1,6 +1,6 @@
 {
   "name": "rockman",
-  "version": "0.0.15",
+  "version": "0.0.20",
   "description": "lightning fast development/boilerplate tool for javascript/node.js",
   "keywords": [],
   "author": "Cloud Le",
@@ -9,16 +9,16 @@
     "rockman": "cli.js"
   },
   "files": [
-    "assets",
+    "assets/**/*",
     "!assets/templates/**/node_module",
-    "engine.node",
+    "wasm/pkg/**/*",
     "bundle.js",
     "server.js",
     "cli.js"
   ],
   "scripts": {
     "dev": "webpack --watch",
-    "build": "webpack && cd engine && yarn build",
+    "build": "webpack && cd wasm && wasm-pack build --target nodejs",
     "release": "npm run build && npm publish",
     "lint": "eslint",
     "test": "jest"
