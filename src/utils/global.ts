@@ -1,5 +1,11 @@
+interface MergeResult {
+  success: boolean;
+  value: string;
+}
+
 interface Engine {
-  hello: () => void;
+  hello: (name: string) => string;
+  merge: (origin: string, current: string, remote: string) => MergeResult;
 }
 
 export const engine: Engine = global.engine;
