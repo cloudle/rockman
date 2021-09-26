@@ -1,7 +1,4 @@
-interface MergeResult {
-  success: boolean;
-  value: string;
-}
+import type { MergeResult } from 'wasm/pkg/wasm';
 
 interface Engine {
   greet: (name: string) => void;

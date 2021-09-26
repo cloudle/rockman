@@ -5,8 +5,13 @@ const module: CommandModule = {
   command: 'bundle',
   describe: 'Bundle/compile source code for release',
   handler: () => {
-    engine.greet('Cloud');
-    console.log('coming soon..');
+    const merged = engine.merge(
+      'origin version',
+      'origin updated!',
+      'origin version',
+    );
+    console.log(merged.success, merged.value, '<--');
+    console.log('Coming soon..');
   },
 };
 
