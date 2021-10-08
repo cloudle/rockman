@@ -5,7 +5,7 @@
 			"commands/*": ["src/commands/*"],
 			"middlewares/*": ["src/middlewares/*"],
 			"utils/*": ["src/utils/*"],
-			"types/*": ["src/types/*"],
+			"types/*": ["src/types/*"]
 		}
 	}
 }

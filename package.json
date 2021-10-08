@@ -1,6 +1,6 @@
 {
   "name": "rockman",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "description": "lightning fast development/boilerplate tool for javascript/node.js",
   "keywords": [],
   "author": "Cloud Le",
@@ -33,7 +33,7 @@
   "homepage": "https://github.com/cloudle/rockman#readme",
   "dependencies": {
     "@swc/cli": "^0.1.49",
-    "@swc/core": "^1.2.88",
+    "@swc/core": "^1.2.91",
     "@swc/jest": "^0.2.3",
     "@swc/register": "^0.1.7",
     "chalk": "^4.1.2",

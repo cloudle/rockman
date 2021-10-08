@@ -11,9 +11,9 @@ const commands = [runCommand, initCommand, extendsCommand, bundleCommand];
 commands.forEach((options) => cliInstance.command(options));
 
 cliInstance
-  .options(options)
-  .alias('h', 'help')
-  .alias('v', 'version')
-  .demandCommand(1, 'You need at least one command before moving on')
-  .help()
-  .parse();
+	.options(options)
+	.alias('h', 'help')
+	.alias('v', 'version')
+	.demandCommand(1, 'You need at least one command before moving on')
+	.help()
+	.parse();

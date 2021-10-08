@@ -16,35 +16,35 @@ const httpServer = createServer();
 const defaultHandler = express();
 
 const configureServer = (httpServer, listen = false) => {
-  const entryMod = require(entryUri);
-  const configure = entryMod.configure || (() => undefined);
+	const entryMod = require(entryUri);
+	const configure = entryMod.configure || (() => undefined);
 
-  asyncWrap(configure(express, httpServer)).then((requestHandler) => {
-    if (listen) {
-      httpServer.listen('3005');
-    }
+	asyncWrap(configure(express, httpServer)).then((requestHandler) => {
+		if (listen) {
+			httpServer.listen('3005');
+		}
 
-    httpServer.removeAllListeners('upgrade');
-    httpServer.removeAllListeners('request');
-    httpServer.on('request', requestHandler || defaultHandler);
-  });
+		httpServer.removeAllListeners('upgrade');
+		httpServer.removeAllListeners('request');
+		httpServer.on('request', requestHandler || defaultHandler);
+	});
 };
 
 watch(process.cwd(), {
-  ignoreInitial: true,
-  ignored: ['**/node_modules/**/*', '**/.git/**/*', '**/.idea/**/*'],
+	ignoreInitial: true,
+	ignored: ['**/node_modules/**/*', '**/.git/**/*', '**/.idea/**/*'],
 }).on('all', (event, filename) => {
-  const relativeUri = relative(process.cwd(), filename);
+	const relativeUri = relative(process.cwd(), filename);
 
-  invalidate(resolve(filename));
-  console.log(gray(mark) + green(' • ') + gray(`hot reloaded ${relativeUri}`));
+	invalidate(resolve(filename));
+	console.log(gray(mark) + green(' • ') + gray(`hot reloaded ${relativeUri}`));
 
-  try {
-    configureServer(httpServer);
-  } catch (err) {
-    console.log(`${gray(mark)} failed to reload ${red(relativeUri)}:`);
-    console.log(err);
-  }
+	try {
+		configureServer(httpServer);
+	} catch (err) {
+		console.log(`${gray(mark)} failed to reload ${red(relativeUri)}:`);
+		console.log(err);
+	}
 });
 
 configureServer(httpServer, true);
