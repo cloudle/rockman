@@ -2,8 +2,12 @@ const { resolve } = require('path');
 const nodeExternals = require('webpack-node-externals');
 const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin');
 
+const mode = process.env.mode || 'development';
+
 const wasmPlugin = new WasmPackPlugin({
 	crateDirectory: resolve(__dirname, 'wasm'),
+	forceMode: mode,
+	extraArgs: '--target nodejs',
 });
 
 // const tsLoader = { test: /\.(ts|js)$/, loader: 'ts-loader' }
@@ -18,7 +22,7 @@ const swcLoader = {
 };
 
 module.exports = {
-	mode: 'production',
+	mode,
 	target: 'node',
 	externals: [nodeExternals()],
 	externalsPresets: {

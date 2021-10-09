@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "dev": "webpack --watch",
-    "build": "webpack && cd wasm && wasm-pack build --target nodejs",
+    "build": "mode=production && webpack && cd wasm && wasm-pack build --target nodejs",
     "release": "npm run build && npm publish",
     "lint": "eslint",
     "test": "jest"
